@@ -24,7 +24,7 @@ export default function Home() {
               innovation, and growth.
             </p>
             <a
-              href="/education"
+              href="/"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 mt-6 rounded-lg"
             >
               Learn More

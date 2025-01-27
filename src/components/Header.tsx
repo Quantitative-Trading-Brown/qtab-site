@@ -27,7 +27,12 @@ const Header = () => {
 
         <nav className="flex space-x-6">
           {Object.entries(siteLinks).map(([path, name]) => (
-            <Link key={name} href={path} className="underline-offset-[7px]">
+            <Link
+              key={name}
+              href={path}
+              className="underline-offset-[7px]"
+              rel="noopener noreferrer"
+            >
               {thisPath == path ? <u>{name}</u> : <>{name}</>}
             </Link>
           ))}
@@ -35,6 +40,7 @@ const Header = () => {
           <Link
             href="https://docs.google.com/forms/d/e/1FAIpQLSdvymh0QrCLnqUdC4NeC7qVTdYzAei0YQ-sRbf1nf6D3nJVZQ/viewform?usp=sf_link"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Resumes
           </Link>
@@ -71,7 +77,13 @@ const Header = () => {
           >
             BIG
           </Link>
-          <Link href="mailto:quant@brown.edu">Contact</Link>
+          <Link
+            href="mailto:quant@brown.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contact
+          </Link>
         </nav>
       </div>
     </header>
