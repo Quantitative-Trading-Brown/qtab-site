@@ -1,6 +1,7 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import db from '@/scripts/firebase'
+import db from '@/scripts/firestore'
 
 export default function Sponsors() {
   const [sponsorLink, setData] = useState("");

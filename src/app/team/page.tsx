@@ -10,7 +10,6 @@ type DataType = {
 };
 
 export default function Team() {
-
     const mockDataTyped = mockData as DataType;
     return (
       <section className="flex flex-col items-center justify-center">
