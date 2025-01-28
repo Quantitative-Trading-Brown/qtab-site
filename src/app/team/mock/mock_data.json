@@ -1,0 +1,17 @@
+{
+    "person1":{
+      "name": "Jane Smith",
+      "image": "https://placehold.co/1000x1000/F7F7F7/766153.png",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ligula scelerisque, finibus odio eu, facilisis libero."
+    },
+    "person2": {
+      "name": "John Doe",
+      "image": "https://placehold.co/1000x1000/F7F7F7/766153.png",
+      "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+    },
+    "person3":{
+      "name": "Alice Johnson",
+      "image": "https://placehold.co/1000x1000/F7F7F7/766153.png",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    }
+}
