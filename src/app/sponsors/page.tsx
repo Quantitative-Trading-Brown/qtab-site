@@ -25,7 +25,7 @@ export default function Sponsors() {
 
   return (
     <div className="flex-grow items-center relative py-20">
-      {loading ? <p>Loading...</p> : <img src="" />}
+      {loading ? <p>Loading...</p> : <img src={sponsorLink} />}
     </div>
   );
 }
