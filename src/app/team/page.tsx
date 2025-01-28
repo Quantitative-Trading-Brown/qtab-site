@@ -16,7 +16,7 @@ export default function Team() {
       <section className="flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           <u>
-            <h1 className="text-4xl py-10 mb-8">Advisors</h1>
+            <h1 className="text-4xl py-10 mb-8">Leadership</h1>
           </u>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -43,7 +43,7 @@ export default function Team() {
 
         <div className="flex flex-col items-center justify-center">
           <u>
-            <h1 className="text-4xl py-10 mb-8">Advisors</h1>
+            <h1 className="text-4xl py-10 mb-8">Researchers and Engineers</h1>
           </u>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.values(mockDataTyped).map((resource, index) => (
