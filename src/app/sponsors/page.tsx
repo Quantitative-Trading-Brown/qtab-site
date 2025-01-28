@@ -4,7 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import db from '@/scripts/firestore'
 
 export default function Sponsors() {
-  const [sponsorLink, setData] = useState("");
+  const [sponsorLink, setLink] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Sponsors() {
         const querySnapshot = await getDocs(collection(db, 'images'));
         const documents = querySnapshot.docs;
         const data = Object.fromEntries(documents.map(doc => [doc.id, doc.data()]));
-        setData(data);
+        setLink(data.sponsors.link);
       } catch (error) {
         console.error("Error fetching Firestore data:", error);
       } finally {
