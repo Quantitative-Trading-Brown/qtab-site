@@ -3,6 +3,17 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "@/scripts/firestore";
 
+type Event = {
+  date: {
+    seconds: number;
+    nanoseconds: number;
+  };
+  occurred: boolean;
+  hosts: string[];
+  name: string;
+  description: string;
+};
+
 export default function Events() {
   const [info, setData] = useState<Object>("");
   const [loading, setLoading] = useState(true);
@@ -31,7 +42,7 @@ export default function Events() {
     fetchData();
   }, []);
 
-  const eventSorter = (a, b) => {
+  const eventSorter = (a: Event, b: Event) => {
     // Events without dates should go to beginning
     if (a.date && !b.date) {
       return 1;
@@ -104,7 +115,7 @@ export default function Events() {
                 {Array.isArray(resource.hosts) ? (
                   <div className="text-gray-800 text-lg mb-2">
                     Hosted by:{" "}
-                    {resource.hosts.map((host) => (
+                    {resource.hosts.map((host: string) => (
                       <div key={host}>{host}</div>
                     ))}
                   </div>
