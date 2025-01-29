@@ -98,7 +98,13 @@ export default function Home() {
   );
 }
 
-const Wedo = ({ image, text, description }) => {
+type WedoParams = {
+  image: string,
+  text: string,
+  description: string
+}
+
+const Wedo = ({ image, text, description }: WedoParams) => {
   return (
     <div className="flex flex-col items-center p-6 h-[30em]">
       <img src={image} className="w-[70%]" />
