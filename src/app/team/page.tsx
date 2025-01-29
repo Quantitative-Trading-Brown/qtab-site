@@ -87,6 +87,8 @@ export default function Team() {
               ))}
           </div>
 
+          <hr className="my-4 border-t-2 border-gray-300" />
+
           {isOpen && selectedResource && (
             <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
               <div className="bg-white rounded-lg p-8 relative max-w-3xl w-full mx-4">
@@ -146,6 +148,7 @@ export default function Team() {
           </div>
 
           <div className="flex flex-col items-center justify-center">
+            <hr className="my-4 border-t-2 border-gray-300" />
             <u>
               <h1 className="text-4xl py-10 mb-8">Advisors</h1>
             </u>
@@ -182,7 +185,6 @@ export default function Team() {
                 ))}
             </div>
           </div>
-
         </div>
       </section>
     );
