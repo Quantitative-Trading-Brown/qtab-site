@@ -7,6 +7,10 @@ export default function Events() {
   const [info, setData] = useState<Object>("");
   const [loading, setLoading] = useState(true);
 
+  const [showPast, setShowPast] = useState(true);
+
+  const toggleSwitch = () => setShowPast(!showPast);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,50 +31,91 @@ export default function Events() {
     fetchData();
   }, []);
 
+  const eventSorter = (a, b) => {
+    // Events without dates should go to beginning
+    if (a.date && !b.date) {
+      return 1;
+    } else if (!a.date && b.date) {
+      return -1;
+    } else if (!a.date && !b.date) {
+      return 0;
+    }
+
+    // Events that occurred should go to end
+    if (a.occurred && !b.occurred) {
+      return 1;
+    } else if (!a.occurred && b.occurred) {
+      return -1;
+    } else if (a.occurred && b.occurred) {
+      return b.date.seconds - a.date.seconds;
+    }
+
+    // Sort by date if all else goes through
+    return a.date.seconds - b.date.seconds;
+  };
+
   return (
-    <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Object.values(info)
-        .sort((a, b) =>
-          (a.date && b.date) && a.occurred ? b.date.seconds - a.date.seconds : 1,
-        )
-        .map((resource, index) => (
+    <div className="flex flex-col items-center">
+      <div className="flex justify-between gap-5 items-center">
+        <span>Show Past Events</span>
+        <div
+          className={`w-14 h-8 flex items-center p-1 cursor-pointer ${
+            showPast ? "bg-red-500" : "bg-gray-400"
+          }`}
+          onClick={toggleSwitch}
+        >
           <div
-            key={index}
-            className={
-              "rounded-lg p-6 flex " +
-              (resource.occurred ? "bg-gray-500" : "bg-white")
-            }
-          >
-            <div className="flex flex-col justify-top">
-              <h2 className="text-gray-800 text-lg font-semibold mb-2 h-[3em]">
-                {resource.name}
-              </h2>
-              {resource.date ? (
-                <div className="text-gray-800 text-lg mb-2">
-                  {Intl.DateTimeFormat("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  }).format(resource.date.seconds * 1000)}
-                  {resource.occurred ? " (Completed)" : ""}
-                </div>
-              ) : null}
-              {Array.isArray(resource.hosts) ? (
-                <div className="text-gray-800 text-lg mb-2">
-                  Hosted by:{" "}
-                  {resource.hosts.map((host) => (
-                    <div key={host}>{host}</div>
-                  ))}
-                </div>
-              ) : null}
-              {resource.description ? (
-                <p className="text-gray-600">{resource.description}</p>
-              ) : null}
+            className={`bg-white w-6 h-6 shadow-md transform duration-300 ${
+              showPast ? "translate-x-6" : ""
+            }`}
+          ></div>
+        </div>
+      </div>
+      <div className="pt-5">
+        We will keep this list updated with quant-related events on campus.
+      </div>
+
+      <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Object.values(info)
+          .sort(eventSorter)
+          .map((resource, index) => (
+            <div
+              key={index}
+              className={`rounded-lg p-6 w-[30em] h-[15em]
+                ${resource.occurred ? "bg-gray-400" : "bg-white"}
+                ${!showPast && resource.occurred ? "hidden" : "flex"}`}
+            >
+              <div className="flex flex-col justify-top">
+                <h2 className="text-gray-800 text-lg font-semibold mb-2 h-[3em]">
+                  {resource.name}
+                </h2>
+                {resource.date ? (
+                  <div className="text-gray-800 text-lg mb-2">
+                    {Intl.DateTimeFormat("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    }).format(resource.date.seconds * 1000)}
+                    {resource.occurred ? " (Completed)" : ""}
+                  </div>
+                ) : null}
+                {Array.isArray(resource.hosts) ? (
+                  <div className="text-gray-800 text-lg mb-2">
+                    Hosted by:{" "}
+                    {resource.hosts.map((host) => (
+                      <div key={host}>{host}</div>
+                    ))}
+                  </div>
+                ) : null}
+                {resource.description ? (
+                  <p className="text-gray-600">{resource.description}</p>
+                ) : null}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Header = () => {
+const Footer = () => {
   const thisPath = usePathname();
 
   const siteLinks = {
@@ -20,7 +20,7 @@ const Header = () => {
             <img
               src="/images/logo.png"
               alt="Quantitative Trading at Brown"
-              className="h-[5em]"
+              className="h-10"
             />
           </Link>
         </div>
@@ -90,4 +90,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Footer;
