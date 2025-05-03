@@ -59,7 +59,7 @@ export default function Team() {
     return (
       <div className="flex flex-col items-center justify-center">
         <TeamHeader text={props.header} />
-        <div className={`grid md:grid-cols-${props.width} gap-6 px-10`}>
+        <div className={`grid md:grid-cols-${props.width} lg:grid-cols-${props.width} gap-6 px-10`}>
           {Object.values(info)
             .filter(
               (resource) =>
