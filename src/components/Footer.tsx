@@ -16,13 +16,6 @@ const Footer = () => {
     <header className="bg-black text-white">
       <div className="container flex items-center justify-between py-4 px-10">
         <div>
-          <Link href="/">
-            <img
-              src="/images/logo.png"
-              alt="Quantitative Trading at Brown"
-              className="h-10"
-            />
-          </Link>
         </div>
       </div>
     </header>

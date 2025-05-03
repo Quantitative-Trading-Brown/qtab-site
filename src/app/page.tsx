@@ -19,7 +19,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="flex mt-10">
+        <div className="flex mt-10 px-20">
           <div className="p-10">
             <div className="flex flex-col items-center relative z-10 text-center p-5">
               <h1 className="text-5xl font-bold">
@@ -42,13 +42,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="p-7 flex flex-col items-center mx-[5em]">
+      <div className="p-7 my-10 flex flex-col items-center mx-[5em]">
         <div className="text-5xl">Where to Find Us</div>
-        <div className="w-[90%] text-xl p-7">
+        <div className="w-[90%] text-xl p-7 text-center">
           QTAB meetings are open to all Brown University students. Join us every
           Tuesday @ 7-9 p.m. in Salomon 203! Subscribe to{" "}
           <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLScZQajVsKOw3Sn52Y1mifI1_7mMoDIWoXe8HHGeqQTZczTWTg/viewform"
+            href="https://listserv.brown.edu/cgi-bin/wa?A0=QUANT"
             className="underline-offset-[7px]"
             target="_blank"
             rel="noopener noreferrer"

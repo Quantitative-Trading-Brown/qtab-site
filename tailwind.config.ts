@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        ibm: ['IBM Plex Mono', 'Helvetica'],
+        helvetica: ['Helvetica Neue', 'Helvetica'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
       animation: {
         marquee: "marquee 40s linear infinite",
       },

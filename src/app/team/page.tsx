@@ -12,6 +12,14 @@ type ResourceData = {
   index: number;
   display: boolean;
   position: string;
+};
+
+function TeamHeader(props) {
+  return (
+    <b>
+      <h1 className="text-4xl py-5 mb-8">{props.text}</h1>
+    </b>
+  );
 }
 
 export default function Team() {
@@ -21,6 +29,51 @@ export default function Team() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState<ResourceData>();
 
+  function Card(props) {
+    return (
+      <div
+        className="bg-white shadow-md rounded-lg p-6 cursor-pointer flex flex-col items-center max-w-sm"
+        onClick={() => {
+          setSelectedResource(props.resource);
+          setIsOpen(true);
+        }}
+      >
+        <img
+          className="w-64 h-64 object-cover rounded-md border-4 border-black mb-4 mx-auto"
+          src={props.resource.image}
+          alt={props.resource.name}
+        />
+        <h2 className="text-gray-800 text-lg font-semibold mb-2 text-center py-4">
+          {props.resource.name}
+        </h2>
+        <p className="text-gray-600 text-center px-4">
+          {props.resource.desc.length > 100
+            ? `${props.resource.desc.slice(0, 100)}...`
+            : props.resource.desc}
+        </p>
+      </div>
+    );
+  }
+
+  function Section(props) {
+    return (
+      <div className="flex flex-col items-center justify-center">
+        <TeamHeader text={props.header} />
+        <div className={`grid md:grid-cols-${props.width} gap-6 px-10`}>
+          {Object.values(info)
+            .filter(
+              (resource) =>
+                resource.display && resource.position == props.keyword,
+            )
+            .sort((a, b) => a.index - b.index)
+            .map((resource, index) => (
+              <Card resource={resource} key={index} />
+            ))}
+        </div>
+      </div>
+    );
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,9 +82,7 @@ export default function Team() {
         const data = Object.fromEntries(
           documents.map((doc) => [doc.id, doc.data()]),
         );
-        console.log(data);
         setData(data);
-        console.log("Hello", Object.values(data));
       } catch (error) {
         console.error("Error fetching Firestore data:", error);
       } finally {
@@ -45,44 +96,13 @@ export default function Team() {
   return (
     <section className="flex flex-col items-center justify-center">
       <div className="flex flex-col items-center justify-center pb-10">
-        <u>
-          <h1 className="text-4xl py-10 mb-8">2024-2025 Leadership</h1>
-        </u>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-10">
-          {Object.values(info)
-            .filter(
-              (resource: ResourceData, index: number, array: unknown[]) =>
-                resource.display && resource.position == "Leadership",
-            )
-            .sort((a, b) => a.index - b.index)
-            .map((resource, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-md rounded-lg p-6 cursor-pointer flex flex-col items-center max-w-sm"
-                onClick={() => {
-                  setSelectedResource(resource);
-                  setIsOpen(true);
-                }}
-              >
-                <img
-                  className="w-48 h-48 object-cover rounded-none border-2 border-indigo-500 mb-4 mx-auto"
-                  src={resource.image}
-                  alt={resource.name}
-                />
-                <h2 className="text-gray-800 text-lg font-semibold mb-2 text-center py-4">
-                  {resource.name}
-                </h2>
-                <p className="text-gray-600 text-center px-4">
-                  {resource.desc.length > 100
-                    ? `${resource.desc.slice(0, 100)}...`
-                    : resource.desc}
-                </p>
-              </div>
-            ))}
-        </div>
-
         <hr className="my-4 border-t-2 border-gray-300" />
+
+        <div className="flex flex-col items-center justify-center">
+          <Section header="Leadership" keyword="Leadership" width={3} />
+          <hr className="my-10" />
+          <Section header="Advisors" keyword="Advisor" width={3}/>
+        </div>
 
         {isOpen && selectedResource && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
@@ -94,7 +114,7 @@ export default function Team() {
                 &times;
               </button>
               <img
-                className="w-full h-auto object-cover rounded-none border-2 border-indigo-500 mb-6"
+                className="w-full h-auto object-cover rounded-none border-2 border-red-500 mb-6"
                 src={selectedResource.image}
                 alt={selectedResource.name}
               />
@@ -105,81 +125,6 @@ export default function Team() {
             </div>
           </div>
         )}
-
-        <div className="flex flex-col items-center justify-center">
-          <u>
-            <h1 className="text-4xl py-10 mb-8">
-              2024-2025 Researchers and Engineers
-            </h1>
-          </u>
-          <div className="grid grid-cols-1 gap-6 px-10 justify-items-center">
-            {Object.values(info)
-              .filter(
-                (resource) =>
-                  resource.display &&
-                  resource.position == "Researchers and Engineers",
-              )
-              .sort((a, b) => a.index - b.index)
-              .map((resource, index) => (
-                <div
-                  key={index}
-                  className="bg-white shadow-md rounded-lg p-6 cursor-pointer flex flex-col items-center max-w-sm"
-                  onClick={() => {
-                    setSelectedResource(resource);
-                    setIsOpen(true);
-                  }}
-                >
-                  <img
-                    className="w-48 h-48 object-cover rounded-none border-2 border-indigo-500 mb-4 mx-auto"
-                    src={resource.image}
-                    alt={resource.name}
-                  />
-                  <h2 className="text-gray-800 text-lg font-semibold mb-2 text-center py-4">
-                    {resource.name}
-                  </h2>
-                </div>
-              ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          <hr className="my-4 border-t-2 border-gray-300" />
-          <u>
-            <h1 className="text-4xl py-10 mb-8">Advisors</h1>
-          </u>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-10">
-            {Object.values(info)
-              .filter(
-                (resource) =>
-                  resource.display && resource.position == "Advisor",
-              )
-              .sort((a, b) => a.index - b.index)
-              .map((resource, index) => (
-                <div
-                  key={index}
-                  className="bg-white shadow-md rounded-lg p-6 cursor-pointer flex flex-col items-center max-w-sm"
-                  onClick={() => {
-                    setSelectedResource(resource);
-                    setIsOpen(true);
-                  }}
-                >
-                  <img
-                    className="w-48 h-48 object-cover rounded-none border-2 border-indigo-500 mb-4 mx-auto"
-                    src={resource.image}
-                    alt={resource.name}
-                  />
-                  <h2 className="text-gray-800 text-lg font-semibold mb-2 text-center py-4">
-                    {resource.name}
-                  </h2>
-                  <p className="text-gray-600 text-center px-4">
-                    {resource.desc.length > 100
-                      ? `${resource.desc.slice(0, 100)}...`
-                      : resource.desc}
-                  </p>
-                </div>
-              ))}
-          </div>
-        </div>
       </div>
     </section>
   );
