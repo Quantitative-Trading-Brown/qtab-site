@@ -55,7 +55,7 @@ export default function Team() {
     );
   }
 
-  function Section(props) {
+  function Section(props:any) {
     return (
       <div className="flex flex-col items-center justify-center">
         <TeamHeader text={props.header} />
