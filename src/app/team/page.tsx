@@ -14,7 +14,7 @@ type ResourceData = {
   position: string;
 };
 
-function TeamHeader(props) {
+function TeamHeader(props:any) {
   return (
     <b>
       <h1 className="text-4xl py-5 mb-8">{props.text}</h1>
@@ -29,7 +29,7 @@ export default function Team() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState<ResourceData>();
 
-  function Card(props) {
+  function Card(props:any) {
     return (
       <div
         className="bg-white shadow-md rounded-lg p-6 cursor-pointer flex flex-col items-center max-w-sm"
