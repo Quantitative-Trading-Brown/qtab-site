@@ -32,21 +32,21 @@ export default function Team() {
   function Card(props:any) {
     return (
       <div
-        className="bg-white shadow-md rounded-lg p-6 cursor-pointer flex flex-col items-center max-w-sm"
+        className="bg-gray-800 text-white shadow-md cursor-pointer flex flex-col items-center"
         onClick={() => {
           setSelectedResource(props.resource);
           setIsOpen(true);
         }}
       >
         <img
-          className="w-64 h-64 object-cover rounded-md border-4 border-black mb-4 mx-auto"
+          className="object-cover mb-4 mx-auto"
           src={props.resource.image}
           alt={props.resource.name}
         />
-        <h2 className="text-gray-800 text-lg font-semibold mb-2 text-center py-4">
+        <h2 className="text-xl font-semibold mb-2 py-4">
           {props.resource.name}
         </h2>
-        <p className="text-gray-600 text-center px-4">
+        <p className="text-center px-10 pb-10">
           {props.resource.desc.length > 100
             ? `${props.resource.desc.slice(0, 100)}...`
             : props.resource.desc}
@@ -59,7 +59,7 @@ export default function Team() {
     return (
       <div className="flex flex-col items-center justify-center">
         <TeamHeader text={props.header} />
-        <div className={`grid md:grid-cols-${props.width} lg:grid-cols-${props.width} gap-6 px-10`}>
+        <div className={`grid grid-cols-4 md:grid-cols-${props.width} lg:grid-cols-${props.width} gap-6 px-4`}>
           {Object.values(info)
             .filter(
               (resource) =>
@@ -99,14 +99,14 @@ export default function Team() {
         <hr className="my-4 border-t-2 border-gray-300" />
 
         <div className="flex flex-col items-center justify-center">
-          <Section header="Leadership" keyword="Leadership" width={3} />
+          <div className="max-w-[70%]"><Section header="Leadership" keyword="Leadership" width={3}/></div>
           <hr className="my-10" />
-          <Section header="Advisors" keyword="Advisor" width={3}/>
+          <div className="max-w-[70%]"><Section header="Advisors" keyword="Advisor" width={4}/></div>
         </div>
 
         {isOpen && selectedResource && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-8 relative max-w-3xl w-full mx-4">
+            <div className="h-[70%] bg-black rounded-lg p-8 relative max-w-3xl w-full mx-4 flex flex-col justify-center items-center">
               <button
                 className="absolute top-4 right-4 text-gray-700 text-2xl font-bold"
                 onClick={() => setIsOpen(false)}
@@ -114,14 +114,14 @@ export default function Team() {
                 &times;
               </button>
               <img
-                className="w-full h-auto object-cover rounded-none border-2 border-red-500 mb-6"
+                className="h-full w-auto object-cover rounded-none mb-6"
                 src={selectedResource.image}
                 alt={selectedResource.name}
               />
               <h2 className="text-2xl font-semibold mb-4 text-center">
                 {selectedResource.name}
               </h2>
-              <p className="text-gray-700">{selectedResource.desc}</p>
+              <p>{selectedResource.desc}</p>
             </div>
           </div>
         )}
