@@ -43,7 +43,7 @@ export default function Team() {
           src={props.resource.image}
           alt={props.resource.name}
         />
-        <h2 className="text-xl font-semibold mb-2 py-4">
+        <h2 className="text-xl font-semibold mb-2 py-4 text-center">
           {props.resource.name}
         </h2>
         <p className="text-center px-10 pb-10">
