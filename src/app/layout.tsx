@@ -23,9 +23,6 @@ export default function RootLayout({
           <Header />
         </div>
         <div className="flex-grow flex flex-col font-ibm">{children}</div>
-        <div className="">
-          <Footer />
-        </div>
       </body>
     </html>
   );

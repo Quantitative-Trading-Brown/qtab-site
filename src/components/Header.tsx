@@ -7,6 +7,7 @@ const Header = () => {
 
   const siteLinks = {
     "/": "Home",
+    "/about": "About",
     "/events": "Events",
     "/team": "Team",
     "/sponsors": "Sponsors",

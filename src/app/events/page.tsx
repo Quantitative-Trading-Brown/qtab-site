@@ -70,13 +70,13 @@ export default function Events() {
       <div className="flex justify-between gap-5 items-center">
         <span>Show Past Events</span>
         <div
-          className={`w-14 h-8 flex items-center p-1 cursor-pointer ${
-            showPast ? "bg-red-500" : "bg-gray-400"
+          className={`w-14 h-8 flex rounded-xl items-center p-1 cursor-pointer ${
+            showPast ? "bg-blue-500" : "bg-gray-400"
           }`}
           onClick={toggleSwitch}
         >
           <div
-            className={`bg-white w-6 h-6 shadow-md transform duration-300 ${
+            className={`bg-white w-6 h-6 rounded-xl shadow-md transform duration-300 ${
               showPast ? "translate-x-6" : ""
             }`}
           ></div>
@@ -86,22 +86,22 @@ export default function Events() {
         We will keep this list updated with quant-related events on campus.
       </div>
 
-      <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="px-20 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.values(info)
           .sort(eventSorter)
           .map((resource, index) => (
             <div
               key={index}
-              className={`rounded-lg p-6 w-[30em] h-[15em]
-                ${resource.occurred ? "bg-gray-400" : "bg-white"}
+              className={`text-white border-white border-[1px] rounded-lg p-6 h-[15em]
+                ${resource.occurred ? "bg-transparent" : "bg-transparent"}
                 ${!showPast && resource.occurred ? "hidden" : "flex"}`}
             >
               <div className="flex flex-col justify-top">
-                <h2 className="text-gray-800 text-lg font-semibold mb-2 h-[3em]">
+                <h2 className="text-lg font-semibold mb-2 h-[3em]">
                   {resource.name}
                 </h2>
                 {resource.date ? (
-                  <div className="text-gray-800 text-lg mb-2">
+                  <div className="text-lg mb-2">
                     {Intl.DateTimeFormat("en-US", {
                       year: "numeric",
                       month: "2-digit",
@@ -113,7 +113,7 @@ export default function Events() {
                   </div>
                 ) : null}
                 {Array.isArray(resource.hosts) ? (
-                  <div className="text-gray-800 text-lg mb-2">
+                  <div className="text-lg mb-2">
                     Hosted by:{" "}
                     {resource.hosts.map((host: string) => (
                       <div key={host}>{host}</div>

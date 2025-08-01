@@ -99,9 +99,9 @@ export default function Team() {
         <hr className="my-4 border-t-2 border-gray-300" />
 
         <div className="flex flex-col items-center justify-center">
-          <div className="max-w-[70%]"><Section header="Leadership" keyword="Leadership" width={3}/></div>
+          <div className="max-w-[80%]"><Section header="Leadership" keyword="Leadership" width={3}/></div>
           <hr className="my-10" />
-          <div className="max-w-[70%]"><Section header="Advisors" keyword="Advisor" width={4}/></div>
+          <div className="max-w-[80%]"><Section header="Advisors" keyword="Advisor" width={4}/></div>
         </div>
 
         {isOpen && selectedResource && (
