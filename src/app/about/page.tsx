@@ -5,8 +5,7 @@ export default function Home() {
       <div className="p-10 flex flex-col items-center mx-[5em]">
         <div className="text-3xl font-bold">Where to Find Us</div>
         <div className="w-[90%] text-xl p-7 text-center">
-          QTAB meetings are open to all Brown University students. Join us every
-          Tuesday @ 7-9 p.m. in Salomon 203! Subscribe to{" "}
+          QTAB meetings are open to all Brown University students. Subscribe to{" "}
           <Link
             href="https://listserv.brown.edu/cgi-bin/wa?A0=QUANT"
             className="underline-offset-[7px]"
@@ -15,7 +14,7 @@ export default function Home() {
           >
           <u>our mailing list</u>
           </Link>{" "}
-          to receive updates, information, and opportunities.
+          to receive updates on club meetings, information, and opportunities.
         </div>
       </div>
 
