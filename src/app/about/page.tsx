@@ -36,8 +36,8 @@ export default function Home() {
             image="/images/research.jpeg"
             text="Research"
             description="
-            The research committee meets regularly to analyze 
-            market information and formulate strategies to trade our capital. 
+            Our researchers analyze 
+            market information and formulate strategies. 
             We have conducted research across various asset classes 
             including equities, currencies, and crypto.
             "

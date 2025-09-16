@@ -26,12 +26,12 @@ export default function Home() {
                 Welcome to Quantitative Trading at Brown
               </h1>
               <p className="mt-4 text-xl w-[80%]">
-                A student-run quantitative fund dedicated to education,
+                A club for students dedicated to education,
                 innovation, and growth.
               </p>
               <a
                 href="/about"
-                className="inline-block bg-black-600 border-[1px] border-white hover:bg-green-700 text-white font-semibold py-3 px-6 mt-6 rounded-lg"
+                className="inline-block bg-black-600 border-[1px] border-white hover:bg-blue-700 text-white font-semibold py-3 px-6 mt-6 rounded-lg"
               >
                 Learn More
               </a>
