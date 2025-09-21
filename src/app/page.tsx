@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex-grow items-center relative py-10">
       <div>
-        <Marquee speed="200" className="text-5xl">
+        <Marquee speed=200 className="text-5xl">
           Mathematicians. Innovators. Researchers. Traders. Developers.
           Thinkers. Creators. Learners. Coders. Statisticians. Builders.
           Teachers. Programmers. Quants. Scientists. Technologists. Engineers.&nbsp;
