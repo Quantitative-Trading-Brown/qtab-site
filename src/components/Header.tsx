@@ -72,13 +72,6 @@ const Header = () => {
           </div>
 
           <Link
-            href="https://browninvestmentgroup.co"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            BIG
-          </Link>
-          <Link
             href="mailto:quant@brown.edu"
             target="_blank"
             rel="noopener noreferrer"
