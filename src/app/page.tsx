@@ -3,16 +3,13 @@ export default function Home() {
   return (
     <div className="flex-grow items-center relative py-10">
       <div>
-        <div className="overflow-hidden whitespace-nowrap relative py-4">
+        <div className="overflow-hidden whitespace-nowrap py-4">
           <div className="flex animate-marquee">
-            <span className="mr-8 text-5xl">
+            <span className="text-5xl">
               Mathematicians. Innovators. Researchers. Traders. Developers.
               Thinkers. Creators. Learners. Coders. Statisticians. Builders.
               Teachers. Programmers. Quants. Scientists. Technologists.
-              Engineers.
-            </span>
-            <span className="mr-8 text-5xl">
-              Mathematicians. Innovators. Researchers. Traders. Developers.
+              Engineers. Mathematicians. Innovators. Researchers. Traders. Developers.
               Thinkers. Creators. Learners. Coders. Statisticians. Builders.
               Teachers. Programmers. Quants. Scientists. Technologists.
               Engineers.
