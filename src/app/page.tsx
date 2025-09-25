@@ -3,12 +3,13 @@ import Marquee from "react-fast-marquee";
 
 export default function Home() {
   return (
-    <div className="flex-grow items-center relative py-10">
+    <div className="flex flex-col flex-grow items-center relative pt-10">
       <div>
         <Marquee speed={200} className="text-5xl">
           Mathematicians. Innovators. Researchers. Traders. Developers.
           Thinkers. Creators. Learners. Coders. Statisticians. Builders.
-          Teachers. Programmers. Quants. Scientists. Technologists. Engineers.&nbsp;
+          Teachers. Programmers. Quants. Scientists. Technologists.
+          Engineers.&nbsp;
         </Marquee>
         <div className="flex mt-20 px-20 items-center">
           <div className="flex-grow p-10">
