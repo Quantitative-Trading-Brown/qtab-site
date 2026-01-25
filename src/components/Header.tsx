@@ -9,7 +9,7 @@ const Header = () => {
     "/": "Home",
     "/about": "About",
     "/events": "Events",
-    "/team": "Team",
+    // "/team": "Team",
     "/sponsors": "Sponsors",
   };
 
@@ -49,7 +49,7 @@ const Header = () => {
           <div className="relative group">
             <button className="group">Resources</button>
             <div
-              className="hidden group-hover:flex hover:flex flex-col 
+              className="hidden group-hover:flex hover:flex flex-col
               bg-white text-black rounded absolute p-2 z-20 w-[10em]"
             >
               <Link
